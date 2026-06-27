@@ -1597,14 +1597,15 @@ function checkAdminPin(){
 // ═══════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════
-renderPS();
-if(allPlayers.length===1){
-  CP=allPlayers[0];
-  updateHome();
-  showScreen('home');
-} else if(allPlayers.length>1){
-  showScreen('playerSelect');
+// Si no hay jugadores, crea uno por defecto
+if(allPlayers.length===0){
+  const p={id:'p_default',name:'Estudiante',avatar:'🌟'};
+  allPlayers.push(p);savePlayers();
 }
+CP=allPlayers[0];
+renderPS();
+updateHome();
+showScreen('home');
 </script>
 </body>
 </html>
