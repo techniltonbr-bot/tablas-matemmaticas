@@ -1365,7 +1365,7 @@ function renderProgress(){
     var dashOffset=circ-(pct*circ);
     var cell=document.createElement('div');cell.className='ov-cell';
     cell.innerHTML='<div class="ov-ring"><svg viewBox="0 0 38 38"><circle class="bg" cx="19" cy="19" r="15" stroke="#E8E8F0" stroke-dasharray="'+circ+' '+circ+'" stroke-dashoffset="0"></circle><circle class="fg" cx="19" cy="19" r="15" stroke="'+color+'" stroke-dasharray="'+circ+' '+circ+'" stroke-dashoffset="'+dashOffset+'" style="transition:stroke-dashoffset .8s ease"></circle></svg><div class="ov-pct">'+Math.round(pct*100)+'%</div></div>'+
-      '<div class="ov-n">×'+n+'</div><div class="ov-lbl">''+(p.stars||0)+'+'/3 ⭐</div>';
+      '<div class="ov-n">×'+n+'</div><div class="ov-lbl">'+(p.stars||0)+'/3 ⭐</div>';
     cell.onclick=function(){startLearn(n);};ov.appendChild(cell);
   });
   // Table list
