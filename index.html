@@ -963,11 +963,11 @@ function buildVisual(n, mult, container){
       var delay=(g*0.1+i*0.05).toFixed(2);
       itemsHtml+='<span class="vg-em" style="animation-delay:'+delay+'s">'+em+'</span>';
     }
-    if(n>8)itemsHtml+='<span style="font-size:11px;color:var(--muted)">+'++(n-8)+'</span>';
+    if(n>8)itemsHtml+='<span style="font-size:11px;color:var(--muted)">+''+(n-8)+'+'</span>';
     groupsHtml+='<div class="vis-group" style="animation-delay:'+(g*0.08).toFixed(2)+'s"><div class="vg-items">'+itemsHtml+'</div><div class="vg-lbl">grupo '+(g+1)+'</div></div>';
   }
-  if(mult>6)groupsHtml+='<div style="font-size:13px;color:var(--muted);align-self:center">+'++(mult-6)+' grupos más</div>';
-  container.innerHTML='<div class="vis-zone"><div class="vis-title">'+mult+' grupo'+(mult>1?'s':'')+' de '+n+' '+em+'</div><div class="vis-groups">'+groupsHtml+'</div><div class="vis-eq">'+n+' × '+mult+' = <span class="vis-anim">'++(n*mult)+'</span></div></div>';
+  if(mult>6)groupsHtml+='<div style="font-size:13px;color:var(--muted);align-self:center">+''+(mult-6)+'+' grupos más</div>';
+  container.innerHTML='<div class="vis-zone"><div class="vis-title">'+mult+' grupo'+(mult>1?'s':'')+' de '+n+' '+em+'</div><div class="vis-groups">'+groupsHtml+'</div><div class="vis-eq">'+n+' × '+mult+' = <span class="vis-anim">''+(n*mult)+'+'</span></div></div>';
 }
 
 // ═══ LEARN TRICK ═══
@@ -1309,7 +1309,7 @@ function renderLP(){
       var badge=isDone?'⭐':isNext?'👉':'';
       html+='<div class="lp-node '+cls+'" onclick="startLearn('+n+')">';
       if(badge)html+='<div class="lp-badge">'+badge+'</div>';
-      html+='<div class="lp-em">'+TE[n]+'</div><div class="lp-n">×'+n+'</div><div class="lp-s">'++(stars>0?'⭐'.repeat(stars)+'☆'.repeat(3-stars):'')+''</div></div>';
+      html+='<div class="lp-em">'+TE[n]+'</div><div class="lp-n">×'+n+'</div><div class="lp-s">''+(stars>0?'⭐'.repeat(stars)+'☆'.repeat(3-stars):'')+''</div></div>';
     });
     html+='</div></div>';
   });
@@ -1365,7 +1365,7 @@ function renderProgress(){
     var dashOffset=circ-(pct*circ);
     var cell=document.createElement('div');cell.className='ov-cell';
     cell.innerHTML='<div class="ov-ring"><svg viewBox="0 0 38 38"><circle class="bg" cx="19" cy="19" r="15" stroke="#E8E8F0" stroke-dasharray="'+circ+' '+circ+'" stroke-dashoffset="0"></circle><circle class="fg" cx="19" cy="19" r="15" stroke="'+color+'" stroke-dasharray="'+circ+' '+circ+'" stroke-dashoffset="'+dashOffset+'" style="transition:stroke-dashoffset .8s ease"></circle></svg><div class="ov-pct">'+Math.round(pct*100)+'%</div></div>'+
-      '<div class="ov-n">×'+n+'</div><div class="ov-lbl">'++(p.stars||0)+'/3 ⭐</div>';
+      '<div class="ov-n">×'+n+'</div><div class="ov-lbl">''+(p.stars||0)+'+'/3 ⭐</div>';
     cell.onclick=function(){startLearn(n);};ov.appendChild(cell);
   });
   // Table list
